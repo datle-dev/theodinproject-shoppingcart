@@ -1,8 +1,8 @@
-import Index from './Index';
-import Catalog from './Catalog';
-import Cart from './Cart';
-import ErrorPage from './ErrorPage';
-import Root from './Root';
+import Index from './pages/Index';
+import Catalog from './pages/Catalog';
+import Cart from './pages/Cart';
+import ErrorPage from './pages/ErrorPage';
+import Root from './pages/Root';
 
 const routes = [
   {
