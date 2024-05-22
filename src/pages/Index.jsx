@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import '../styles/App.css';
-
-function App() {
+const Index = () => {
   return (
     <>
       <h1>Home</h1>
@@ -9,4 +6,4 @@ function App() {
   );
 }
 
-export default App;
+export default Index;
