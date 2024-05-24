@@ -13,6 +13,7 @@ const Catalog = () => {
           console.log(json);
           setProducts(json);
         })
+        .catch((err) => console.log(err))
     };
     fetchProducts();
   }, []);
