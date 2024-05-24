@@ -1,7 +1,21 @@
-import { useOutletContext } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 const Catalog = () => {
   const [count, handleAddCount, handleSubtractCount] = useOutletContext();
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      await fetch('https://fakestoreapi.com/products')
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json);
+          setProducts(json);
+        })
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <>
