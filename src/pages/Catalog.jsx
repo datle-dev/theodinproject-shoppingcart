@@ -3,6 +3,8 @@ import { useOutletContext } from 'react-router-dom';
 
 const Catalog = () => {
   const [count, handleAddCount, handleSubtractCount] = useOutletContext();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -13,10 +15,14 @@ const Catalog = () => {
           console.log(json);
           setProducts(json);
         })
-        .catch((err) => console.log(err))
+        .catch((err) => setError(err))
+        .finally(() => setLoading(false))
     };
     fetchProducts();
   }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <>
