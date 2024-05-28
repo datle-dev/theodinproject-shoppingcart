@@ -8,12 +8,15 @@ const Root = () => {
     const storedCart = localStorage.getItem('cart');
     return storedCart !== null ? JSON.parse(storedCart) : {};
   });
+  const [numCartItems, setNumCartItems] = useState(() => {
+    return Object.keys(cart).length;
+  });
 
   return (
     <>
-      <Navbar />
+      <Navbar numCartItems={numCartItems}/>
       <main>
-        <Outlet context={[cart, setCart]}/>
+        <Outlet context={[cart, setCart, numCartItems, setNumCartItems]}/>
       </main>
     </>
   );

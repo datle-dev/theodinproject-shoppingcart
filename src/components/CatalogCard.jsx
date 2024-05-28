@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 
 const CatalogCard = ({ product }) => {
   const [qty, setQty] = useState(0);
-  const [cart, setCart] = useOutletContext();
+  const [cart, setCart, numCartItems, setNumCartItems] = useOutletContext();
   const [qtyInCart, setQtyInCart] = useState(() => {
     return cart.hasOwnProperty(product.id) ? cart[product.id]['quantity'] : 0;
   });
@@ -26,6 +26,7 @@ const CatalogCard = ({ product }) => {
         product: product,
         quantity: qty,
       };
+      setNumCartItems(numCartItems + 1);
     }
 
     setCart(cartToUpdate);
