@@ -1,4 +1,4 @@
-import { CartContext } from '../pages/Catalog';
+import { CartContext } from '../pages/Root';
 import { useState, useContext } from 'react';
 
 const CatalogCard = ({ product }) => {
