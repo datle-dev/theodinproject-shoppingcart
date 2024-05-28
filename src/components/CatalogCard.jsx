@@ -1,9 +1,9 @@
-import { CartContext } from '../pages/Root';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
+import { useOutletContext } from "react-router-dom";
 
 const CatalogCard = ({ product }) => {
   const [qty, setQty] = useState(0);
-  const [cart, setCart] = useContext(CartContext);
+  const [cart, setCart] = useOutletContext();
   const [qtyInCart, setQtyInCart] = useState(() => {
     return cart.hasOwnProperty(product.id) ? cart[product.id]['quantity'] : 0;
   });
