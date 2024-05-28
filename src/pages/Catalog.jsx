@@ -37,7 +37,9 @@ const Catalog = () => {
       <button type="button" onClick={handleSubtractCount}>Subtract from Cart</button>
       {products.map((product) => {
         return (
-          <CatalogCard product={product} />
+          <article key={product.id}>
+            <CatalogCard product={product} />
+          </article>
         )
       })}
     </>
