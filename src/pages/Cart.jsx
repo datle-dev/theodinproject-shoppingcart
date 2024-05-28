@@ -1,11 +1,20 @@
 import { useOutletContext } from "react-router-dom";
 
 const Cart = () => {
+  const [cart, setCart] = useOutletContext();
+
   return (
     <>
       <h1>Cart</h1>
-      <button type="button" onClick={handleAddCount}>Add to Cart</button>
-      <button type="button" onClick={handleSubtractCount}>Subtract from Cart</button>
+      {Object.values(cart).map((value) => {
+        return (
+          <div>
+            <p>{value.product.title}</p>
+            <p>${value.product.price}</p>
+            <p>{value.quantity} in cart</p>
+          </div>
+        )
+      })}
     </>
   );
 };
