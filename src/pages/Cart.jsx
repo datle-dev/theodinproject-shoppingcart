@@ -8,7 +8,7 @@ const Cart = () => {
       <h1>Cart</h1>
       {Object.values(cart).map((value) => {
         return (
-          <div>
+          <div key={value.product.id}>
             <p>{value.product.title}</p>
             <p>${value.product.price}</p>
             <p>{value.quantity} in cart</p>
