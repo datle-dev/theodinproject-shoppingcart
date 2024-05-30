@@ -8,6 +8,7 @@ const Root = () => {
     const storedCart = localStorage.getItem('cart');
     return storedCart !== null ? JSON.parse(storedCart) : {};
   });
+
   const [numCartItems, setNumCartItems] = useState(() => {
     return Object.keys(cart).length;
   });
